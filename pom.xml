@@ -32,7 +32,8 @@
 	</issueManagement>
 
 	<scm>
-		<connection>scm:git:https://github.com/VEDAGroup/liquibase-db2i.git</connection>
+		<connection>scm:git:http://github.com/VEDAGroup/liquibase-db2i.git</connection>
+		<developerConnection>scm:git:http://github.com/VEDAGroup/liquibase-db2i.git</developerConnection>
 		<url>https://github.com/VEDAGroup/liquibase-db2i</url>
 	</scm>
 
