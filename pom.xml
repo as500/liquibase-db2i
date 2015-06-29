@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-
+	<parent>
+		<groupId>net.veda</groupId>
+		<artifactId>VEDA-Master-POM</artifactId>
+		<version>17</version>
+	</parent>
+	
 	<groupId>org.liquibase.ext</groupId>
-	<artifactId>liquibase-db2i</artifactId>
+	<artifactId>liquibase-db2i-VEDA</artifactId>
 	<version>1.1-SNAPSHOT</version>
 
 	<name>Liquibase Extension: IBM DB2 for iSeries Support</name>
@@ -27,8 +32,8 @@
 	</issueManagement>
 
 	<scm>
-		<connection>scm:git:http://github.com/liquibase/liquibase-db2i.git</connection>
-		<url>https://github.com/liquibase/liquibase-db2i</url>
+		<connection>scm:git:https://github.com/VEDAGroup/liquibase-db2i.git</connection>
+		<url>https://github.com/VEDAGroup/liquibase-db2i</url>
 	</scm>
 
 	<developers>
@@ -125,26 +130,6 @@
 				</plugin>
 
 				<plugin>
-					<groupId>org.sonatype.plugins</groupId>
-					<artifactId>nexus-staging-maven-plugin</artifactId>
-					<version>1.6.5</version>
-					<extensions>true</extensions>
-					<executions>
-						<execution>
-							<id>default-deploy</id>
-							<phase>deploy</phase>
-							<goals>
-								<goal>deploy</goal>
-							</goals>
-						</execution>
-					</executions>
-					<configuration>
-						<serverId>sonatype-nexus-staging</serverId>
-						<nexusUrl>https://oss.sonatype.org/service/local/staging/deploy/maven2/</nexusUrl>
-					</configuration>
-				</plugin>
-
-				<plugin>
 					<artifactId>maven-deploy-plugin</artifactId>
 					<configuration>
 						<skip>false</skip>
@@ -154,48 +139,5 @@
 
 		</pluginManagement>
 	</build>
-
-    <distributionManagement>
-        <repository>
-            <id>sonatype-nexus-staging</id>
-            <name>Nexus Release Repository</name>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
-        </repository>
-        <snapshotRepository>
-            <id>sonatype-nexus-snapshots</id>
-            <name>Sonatype Nexus Snapshots</name>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
-    </distributionManagement>
-
-	<profiles>
-		<profile>
-            <!-- Required for deployment to Sonatype -->
-			<id>release-sign-artifacts</id>
-			<activation>
-				<property>
-					<name>performRelease</name>
-					<value>true</value>
-				</property>
-			</activation>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-gpg-plugin</artifactId>
-						<executions>
-							<execution>
-								<id>sign-artifacts</id>
-								<phase>verify</phase>
-								<goals>
-									<goal>sign</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-	</profiles>
 
 </project>
